@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI試行計画ノート | Daisosha 公開デモ</title>
+<meta name="description" content="AI導入を小さく試すための4週間の計画と、準備・作業・確認時間を記録。ブラウザー内で使える大創社の公開デモです。">
+<meta name="referrer" content="strict-origin-when-cross-origin"><meta name="color-scheme" content="light">
+<link rel="canonical" href="https://daisosha.com/demos/ai-pilot-planner/">
+<meta property="og:type" content="website"><meta property="og:title" content="AI試行計画ノート | Daisosha">
+<meta property="og:description" content="4週間の計画と実測を、ひとつのノートに。登録不要のブラウザーアプリ。">
+<meta property="og:url" content="https://daisosha.com/demos/ai-pilot-planner/"><meta property="og:image" content="https://daisosha.com/img/og-image.png">
+<meta name="twitter:card" content="summary"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css"><script defer src="core.js"></script><script defer src="app.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AI試行計画ノート / AI Pilot Planner","url":"https://daisosha.com/demos/ai-pilot-planner/","applicationCategory":"BusinessApplication","operatingSystem":"Web browser","inLanguage":["ja","en"],"isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"大創社 (Daisosha)","url":"https://daisosha.com/"}}</script>
+</head><body>
+<header><a class="brand" href="https://daisosha.com/">DAISOSHA <span>PUBLIC DEMO / 01</span></a><label class="language">Language <select id="language"><option value="ja">日本語</option><option value="en">English</option></select></label></header>
+<main>
+<section class="hero"><p class="eyebrow">A SMALL EXPERIMENT. A CLEAR NEXT STEP.</p><h1 data-i="title">AI試行計画ノート</h1><p class="lead" data-i="lead">「導入した」から、「仕事に役立つ」を確かめる4週間へ。</p><p data-i="intro">誰が何を試し、何を確認するか。計画と実測を並べて、次の判断に使えるノートをつくります。</p><div class="badge-row"><span data-i="badge1">登録不要</span><span data-i="badge2">日英切替</span><span data-i="badge3">端末内で編集</span></div></section>
+<aside class="notice"><strong data-i="privacyHead">このノートの使い方</strong><p data-i="privacy">AIに入力を送信する機能はありません。保存を有効にすると、このブラウザーに記録します。共有端末では保存せず、氏名・相談内容・業務の秘密は入力しないでください。実データではなく、案件名を置き換えた記録がおすすめです。</p></aside>
+<div class="toolbar"><button id="sample" type="button" data-i="sample">架空の記入例を見る</button><button id="download" type="button" data-i="download">ノートを書き出す（JSON）</button><label class="file-button"><span data-i="import">JSONを読み込む</span><input id="import" type="file" accept="application/json,.json"></label><button id="print" type="button" data-i="print">印刷 / PDF</button></div>
+<div class="save-line"><label><input type="checkbox" id="persist"><span data-i="persist">このブラウザーに自動保存する</span></label><button id="clear" type="button" data-i="clear">ノートを空にする</button></div>
+<p id="status" role="status" aria-live="polite"></p>
+<section class="panel"><div class="section-heading"><span>01</span><h2 data-i="scope">試す範囲を決める</h2></div><div class="fields">
+<label><span data-i="project">試行名</span><input id="project" maxlength="200" autocomplete="off"></label><label><span data-i="owner">担当・役割（仮名で可）</span><input id="owner" maxlength="200" autocomplete="off"></label>
+<label><span data-i="goal">解決したい困りごと・確かめたいこと</span><textarea id="goal" maxlength="3000" rows="3"></textarea></label><label><span data-i="boundary">使えるデータ・使わないデータ・人が確認すること</span><textarea id="boundary" maxlength="3000" rows="3"></textarea></label></div></section>
+<section class="panel"><div class="section-heading"><span>02</span><h2 data-i="plan">4週間の試行計画</h2></div><p data-i="planHelp">各週に小さな作業と確認方法を設定します。週の見出しは例で、必要に応じて内容を変えられます。</p><div id="weeks" class="week-grid"></div></section>
+<section class="panel"><div class="section-heading"><span>03</span><h2 data-i="trials">実測を記録する</h2></div><p data-i="measureHelp">同程度の作業で比較してください。AI利用時は準備・作業・確認をすべて分で記録します。空欄は未計測として集計から除外し、0分とは区別します。</p><div id="trialList"></div><div class="toolbar"><button id="add" type="button" class="primary" data-i="add">記録を追加</button><button id="csv" type="button" data-i="csv">記録をCSVで書き出す</button></div></section>
+<section class="summary panel" aria-labelledby="summaryHeading"><div class="section-heading"><span>04</span><h2 id="summaryHeading" data-i="summary">次の判断に使う</h2></div><div id="totals" class="metrics"></div><p data-i="caution">これは入力値の単純集計です。削減時間だけで成果を判断せず、仕上がりの品質、やり直し、確認する人の負担も振り返ってください。AIの性能・導入効果を保証する値ではありません。</p><p data-i="next">続ける / 範囲を変える / いったん止める。判断の理由と次に試すことを、4週目の確認欄に残しましょう。</p></section>
+<section class="closing"><h2 data-i="closing">小さな試行から、使える仕組みへ。</h2><p data-i="closingCopy">業務の整理、試作品、Web実装まで。大創社は目的と確認方法を一緒に設計します。</p><nav aria-label="Related resources"><a id="guideLink" href="https://daisosha.com/ai-adoption-first-month.html" data-i="guide">1か月の進め方を読む</a><a href="https://daisosha.com/contact.php?lang=ja" id="contactLink" data-i="contact">制作・導入を相談する</a><a href="https://github.com/DAISOSHA/ai-pilot-planner">GitHub</a><a href="https://www.youtube.com/channel/UCzHP6NIUVXF40AuBzMLWosw">YouTube</a></nav></section>
+<noscript><p>JavaScriptを有効にすると編集・集計できます。Enable JavaScript to edit and calculate.</p></noscript>
+</main><footer>© 2026 Daisosha. <span data-i="footer">公開デモ。顧客データ・機密コード・特許出願資料を含みません。</span></footer>
+</body></html>
